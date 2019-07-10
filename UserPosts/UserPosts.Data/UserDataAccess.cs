@@ -7,7 +7,7 @@ namespace UserPosts.Data
     {
         protected override string GetFile()
         {
-            return @"D:\projects\wantsome\week11\UserPosts\UserPosts.Data\Files\users.json";
+            return @"F:\Wantsome\POORecap\UserPosts\UserPosts.Data\Files\users.json";
         }
     }
 }

@@ -1,14 +1,18 @@
-﻿namespace UserPosts.Services
+﻿using System.Collections.Generic;
+
+namespace UserPosts.Services
 {
     public class UserService
     {
         private readonly IUserRepository userRepository;
         private readonly IPostRepository postRepository;
+        private readonly ICommentRepository commentRepository;
 
-        public UserService(IUserRepository userRepository, IPostRepository postRepository)
+        public UserService(IUserRepository userRepository, IPostRepository postRepository, ICommentRepository commentRepository)
         {
             this.userRepository = userRepository;
             this.postRepository = postRepository;
+            this.commentRepository = commentRepository;
         }
 
         public UserActiveRespose GetUserActiveRespose(int id)
@@ -44,19 +48,23 @@
            
             return response;
         }
-    }
 
-    public class UserActiveRespose
-    {
-        public string Email { get; set; }
+        public UserComments GetCommentsPerUser(int id)
+        {
+            var comments = new UserComments();
 
-        public UserPostsStatus Status { get; set; }
-    }
+            var user = this.userRepository.GetById(id);
 
-    public enum UserPostsStatus
-    {
-        Inactive,
-        Active, 
-        Superactive
+            comments.Name = user.Name;
+
+            var comms = this.commentRepository.GetCommentsByUserId(user.Id);
+
+            foreach(var comm in comms)
+            {
+                comments.Comments.Add(comm.Id, comm.Text);
+            }
+
+            return comments;
+        }
     }
 }

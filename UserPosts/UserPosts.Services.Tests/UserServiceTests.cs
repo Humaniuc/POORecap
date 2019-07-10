@@ -12,8 +12,9 @@ namespace UserPosts.Services.Tests
         {
             IUserRepository userRepository = new UserDummyRepo();
             IPostRepository postRepository = new PostDummyRepo();
+            ICommentRepository commentRepository = new CommentDummyRepo();
 
-            sut = new UserService(userRepository, postRepository);
+            sut = new UserService(userRepository, postRepository, commentRepository);
 
             var expected = new UserActiveRespose()
             {

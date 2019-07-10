@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentDummyRepo.cs" />
     <Compile Include="PostDummyRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDummyRepo.cs" />

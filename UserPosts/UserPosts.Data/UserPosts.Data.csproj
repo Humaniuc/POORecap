@@ -45,12 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDataAccess.cs" />
+    <Compile Include="CommentDataAccess.cs" />
     <Compile Include="PostDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Files\posts.json" />
+    <None Include="Files\comments.json" />
     <None Include="Files\users.json" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -60,7 +62,7 @@
       <Name>UserPosts.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserPosts.Services\UserPosts.Services.csproj">
-      <Project>{555D150A-E8D1-48AD-A2BC-2E335F2231A4}</Project>
+      <Project>{555d150a-e8d1-48ad-a2bc-2e335f2231a4}</Project>
       <Name>UserPosts.Services</Name>
     </ProjectReference>
   </ItemGroup>
